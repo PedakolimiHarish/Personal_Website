@@ -1,4 +1,4 @@
-site_name: Notes_Docs
+site_name: My Website
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -6,36 +6,37 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
 
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  - def_list
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
   - md_in_html
-
+  - admonition
+  - pymdownx.details
+  - attr_list
+  
   - toc:
       permalink: true
 
-plugins:
-  - glightbox
-
-  
 theme:
   name: material
 
-  font:
-    text: Roboto
-    
   features:
     - navigation.instant
     - navigation.instant.progress
     - navigation.tracking
     - navigation.sections
+    - navigation.tabs
     - navigation.path
     - navigation.indexes
     - navigation.top
     - content.code.copy
-  
-  icon:
-    logo: material/robot-happy
 
   palette:
 
@@ -58,3 +59,37 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
+
+
+nav:
+  - Home: index.md
+  - Notes:
+    - Getting Started: Notes/Getting Started.md
+
+    - ROS2:
+      - Getting Started:
+        - Installation: Notes/ROS2/Getting Started/Ros2 installation guide.md
+        - What is Ros: Notes/ROS2/Getting Started/What is Ros.md
+        - DDS and Ros_Domain_ID: Notes/ROS2/Getting Started/DDS and ROS_DOMAIN_ID.md
+      - Theory: 
+          - Topic: Notes/ROS2/Basics/Topic.md
+          - Node: Notes/ROS2/Basics/Node.md
+
+    - Programming:
+      - C: Notes/Programming/C/c.md
+      - C++: Notes/Programming/C++/cpp.md
+      - Python: Notes/Programming/Python/python.md
+      - Rust: Notes/Programming/Rust/rust.md
+
+    - Physics: Notes/Physics/Getting Started.md 
+      
+   
+  - Projects:
+      - Project 1: Projects/proj1.md
+      - Project 2: Projects/proj2.md
+      - Project 3: Projects/proj/pj3.md
+  - About Me: about.md
+
+extra_css:
+  #- stylesheets/home.css
+  - stylesheets/extra.css

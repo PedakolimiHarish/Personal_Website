@@ -17,13 +17,13 @@ Open a new terminal window.
 
 Type this command inside a terminal window.
 
-``` Bash
+``` Bash title="Bash"
 locale
 ```
 
 If you see something like this that means you already have locale ready to use, but if you don't then follow along.
 
-``` bash
+``` bash title="Bash"
 LANG=en_US.UTF-8
 LANGUAGE=
 LC_CTYPE="en_US.UTF-8"
@@ -45,7 +45,7 @@ A locale is a set of variables that define the language, country, and character 
 
 Now type the following command:
 
-``` bash
+``` bash title="Bash"
 sudo apt update && sudo apt install locales
 ```
 
@@ -55,7 +55,7 @@ sudo apt update && sudo apt install locales
 
 Now type the following commands into the terminal window to generate locale definition files. After each command, press Enter only your keyboard:
 
-``` bash
+``` bash title="Bash"
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -65,13 +65,13 @@ In this case, these commands are generating locale definition files for the Engl
 
 Now we need to verify the settings by typing:
 
-``` Bash
+``` Bash title="Bash"
 locale
 ```
 
 After installing these you will see the following
 
-``` bash
+``` bash title="Bash"
 LANG=en_US.UTF-8
 LANGUAGE=
 LC_CTYPE="en_US.UTF-8"
@@ -94,7 +94,8 @@ LC_ALL=
 Let’s add the ROS 2 apt repository to our system. APT stands for “Advanced Package Repository”. This repository provides a convenient way to install and manage ROS 2 packages without having to clone packages to your computer from GitHub and build them from that source code.  
 
 Open a terminal window, and type the following two commands:
-``` bash
+
+``` bash title="Bash"
 sudo apt install software-properties-common
 sudo add-apt-repository universe
 ```
@@ -108,32 +109,32 @@ Now we need to add the ROS 2 GPG key with apt. The ROS 2 GPG key makes sure the 
 
 Type these two commands:
 
-``` bash
+``` bash title="Bash"
 sudo apt update && sudo apt install curl -y
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 ```
 
 Add the repository to your sources list (copy and paste all of this below):
 
-``` bash
+``` bash title="Bash"
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2-testing/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 ```
 
 Type the following command to install ROS 2 development tools.
 
-``` bash
+``` bash title="Bash"
 sudo apt update && sudo apt install ros-dev-tools
 ```
 
 Now update the apt repository:
 
-``` bash
+``` bash title="Bash"
 sudo apt update -y
 ```
 
 Upgrade the packages on your system to make sure you have the newest versions.
 
-``` bash
+``` bash title="Bash"
 sudo apt upgrade -y
 ```
 
@@ -144,13 +145,13 @@ Open a terminal window, and type this command:
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
-``` bash
+``` bash title="Bash"
 sudo apt install ros-jazzy-desktop
 ```
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools. No GUI tools.
 
-``` bash
+``` bash title="Bash"
 sudo apt install ros-jazzy-ros-base
 ```
 
@@ -160,7 +161,7 @@ Once jazzy has finished installing, you need to set up the important environment
 
 Open a terminal window, and type this command:
 
-``` bash
+``` bash title="Bash"
 echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
 ```
 
@@ -172,26 +173,27 @@ By adding this line `(echo “source /opt/ros/jazzy/setup.bash”)` to your `~/.
 
 For the changes to take effect, you now need to open a new terminal window, or you can type this command in the current terminal:
 
-``` bash
+``` bash title="Bash"
 source ~/.bashrc
 ```
 
 You can verify that line was added by typing:
 
-``` bash
+``` bash title="Bash"
 cd
 nano .bashrc
 ```
 
 and at the end you will see 
-``` bash
+
+``` bash title="Bash"
 source /opt/ros/jazzy/setup.bash
 ```
 ## Install Gazebo and Other Useful Packages
 
 Let’s install some other useful packages like pip (the Python package manager), Gazebo, a simulation software for robotics, and NumPy, a scientific computing library for Python.
 
-``` bash
+``` bash title="Bash"
 sudo apt-get install python3 python3-pip -y
 sudo apt-get install ros-${ROS_DISTRO}-ros-gz -y
 sudo apt-get install python3-numpy
@@ -199,7 +201,7 @@ sudo apt-get install python3-numpy
 
 Let’s make these environment variables permanent. Open a terminal window, and type these commands, one after the other:
 
-``` bash
+``` bash title="Bash"
 echo 'export LIBGL_ALWAYS_SOFTWARE=1' >> ~/.bashrc
 echo 'export QT_QPA_PLATFORM=xcb' >> ~/.bashrc
 source ~/.bashrc
@@ -209,7 +211,7 @@ source ~/.bashrc
 
 open a new terminal window, and type:
 
-``` bash
+``` bash title="Bash"
 gz sim -v 4 shapes.sdf
 ```
 
@@ -217,13 +219,13 @@ You should see something like this
 
 
 <figure markdown="span">
-  ![gazebo shapes.sdf](Rescouces\gazebo_test_01.png)
+  ![gazebo shapes.sdf](Resources\gazebo_test_01.png)
   <figcaption>gazebo shapes.sdf</figcaption>
 </figure>
 
 
 This command will launch gazebo 
-``` bash
+``` bash title="Bash"
 gz sim 
 ```
 
@@ -233,12 +235,12 @@ Now that we have tested Gazebo, let’s test our ROS 2 installation by running s
 
 Open a terminal window, and type:
 
-``` bash
+``` bash title="Bash"
 ros2 run demo_nodes_cpp talker
 ```
 
 <figure markdown="span">
-  ![demo_talker](Rescouces\demo_talker.png)
+  ![demo_talker](Resources\demo_talker.png)
   <figcaption>demo_talker</figcaption>
 </figure>
 
@@ -246,11 +248,11 @@ This command runs a pre-built program called “talker” that comes with ROS 2.
 
 Open another terminal window, and type:
 
-``` bash
+``` bash title="Bash"
 ros2 run demo_nodes_py listener
 ```
 <figure markdown="span">
-  ![demo_listener](Rescouces\demo_listener.png)
+  ![demo_listener](Resources\demo_listener.png)
   <figcaption>demo_listener</figcaption>
 </figure>
 
@@ -264,13 +266,13 @@ Now you have installed Ros2 Jazzy and Gazebo Harmonic successfully, now go learn
 
 If you need to uninstall ROS 2 or switch to a source-based install once you have already installed from binaries, run the following command:
 
-``` bash
+``` bash title="Bash"
 sudo apt remove ~nros-jazzy-* && sudo apt autoremove
 ```
 
 You may also want to remove the repository:
 
-``` bash
+``` bash title="Bash"
 sudo rm /etc/apt/sources.list.d/ros2.list
 sudo apt update
 sudo apt autoremove
