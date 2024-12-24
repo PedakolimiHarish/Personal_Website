@@ -1,0 +1,26 @@
+/* Apply custom styles only to the Home page */
+body[data-md-name="index"] .custom-home {
+  background-color: #c50f0f;
+  text-align: center;
+}
+
+body[data-md-name="index"] .md-nav {
+  display: none; /* Hides sidebar only on the Home page */
+}
+
+body[data-md-name="index"] .md-main {
+  margin-left: 0; /* Adjusts main content width */
+}
+
+body[data-md-name="about"] .custom-home {
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+body[data-md-name="about"] .md-nav {
+  display: none; /* Hides sidebar only on the Home page */
+}
+
+body[data-md-name="about"] .md-main {
+  margin-left: 0; /* Adjusts main content width */
+}
