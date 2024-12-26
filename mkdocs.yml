@@ -1,4 +1,4 @@
-site_name: My Website
+site_name: Pedakolimi Harish
 
 markdown_extensions:
   - pymdownx.highlight:
